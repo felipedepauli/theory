@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: power-electronics
+Version: 0.0.1
+Summary: My short description
+Home-page: https://github.com/felipedepauli/theory/tree/main/python/09_packages
+Author: Felipe Camargo de Pauli
+Author-email: fcdpauli@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.8
+
+# Power Electronics
+
+Description.
+First of all, this is a project to learn packaging in python. But, the package is a collection of functions that calculates the important variables in power circuits:
+
+    Rectifiers:
+  
+        - Get values from a halph wave rectifier
+        - Get values from a whole wave rectifier
+
+    Utils:
+
+        - Plot waves
+  
+## Installation
+
+Use the package manager [pip](https//pip.pypa.io/en/stable) to install package_name
+
+```python
+pip install power_electronics
+```
+
+## Author
+Felipe Camargo de Pauli
+
+## License
+[MIT](https://choosealicense.com/licenses/mit)
+
+
+
