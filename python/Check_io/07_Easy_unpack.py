@@ -16,3 +16,11 @@ from operator import itemgetter
 unpack_3 = itemgetter(0, 2, ~1)
 
 print(unpack_3(lista))
+
+# Solution 04
+import numpy as np
+def unpack_4(lista):
+    lista_array = np.array(lista)
+    return tuple(lista_array[[0, 2, -2]])
+
+print(unpack_4(lista))
