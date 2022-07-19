@@ -1,0 +1,184 @@
+\documentclass[12pt,a4paper]{article}
+
+%   Configura as margens que nem a bunda dele.
+    \usepackage[left=1.5cm, right=1.5cm, top=1.5cm, bottom=1.8cm]{geometry}
+
+%   Traduz as frases autogeradas para português. Também faz a separação silábica.
+    \usepackage[portuguese]{babel}
+
+%   Configura para que todas as seções iniciem com um parágrafo identado.
+    \usepackage{indentfirst}
+
+%   Facilita os processos de alinhamento. São eles:
+    \usepackage{titlesec}
+    \usepackage{float}
+    %\usepackage{setspace}
+
+%   Permite a utilização de gráficos (inserir imagens)
+    \usepackage{graphicx}
+    \graphicspath{{./images/}}
+
+%   Várias fórmulas matemáticas
+    \usepackage{amsmath}
+
+    \raggedbottom
+    \usepackage[bottom]{footmisc}
+    \setlength{\parindent}{1.2cm}
+    \linespread{1}
+    \usepackage[font=footnotesize,labelfont=bf]{caption}
+
+    % Aqui o bicho pega. Os circuitos bonitos são gerados por ele
+    \usepackage{tikz, tkz-euclide}
+    \usepackage{circuitikz}
+    \usepackage{siunitx}
+
+%   Configurações das colunas
+    \usepackage{multicol}
+    \setlength{\columnsep}{30pt}
+
+%   ## CHANGING FONTS
+    \renewcommand*\ttdefault{txtt}
+    \renewcommand*\familydefault{\ttdefault}
+    \usepackage[T1]{fontenc}
+    \usepackage{everysel}
+    \EverySelectfont{%
+    \fontdimen2\font=0.4em% interword space
+    \fontdimen3\font=0.2em% interword stretch
+    \fontdimen4\font=0.1em% interword shrink
+    \fontdimen7\font=0.1em% extra space
+    \hyphenchar\font=`\-% to allow hyphenation
+    }
+
+% Vai começar a palhaçada
+\begin{document}
+\begin{center}
+\Large Segurança - VPN
+    \vskip .3cm
+     \large Felipe Camargo de Pauli
+    \end{center}
+    \vskip .3cm
+\begin{multicols*}{2}
+\section*{\center{Resumo}}
+\normalsize
+\titlespacing\section{0pt}{3mm}{1mm}[0mm]
+\setlength{\parskip}{0cm}
+Abstract
+\setlength{\parskip}{.2cm}
+% ##############################################
+% ############ INTRODUÇÃO ######################
+\section{Introdução}
+    {
+
+   Como nós bem sabemos de toda esta pataquada 
+
+
+
+
+    }
+    {
+    \unskip\parfillskip 0pt
+    Também percebeu-se que a cada 5 múltiplos de RC segundos, tem-se ou o capacitor carregado ou descarregado. Esse período tem uma denominação própria: constante de tempo $\tau$.\cite{sadiku}\par}
+
+\section{Métodos}
+
+    Um circuito contendo um resistor, um capacitor e um gerador de tensão foi utilizado nesta experiência. Também foram utilizados um aparelho para medir as resistências dos componentes e capacitância do capacitor, um multímetro digital para medir a tensão ao longo do tempo, e um celular para gravar cada curva de carregamento e descarregamento.
+
+    Inicialmente montou-se o circuito de acordo com o diagrama abaixo.
+    
+    % Aqui vai rolar o Circuitkx
+        \begin{figure}[H]
+            \centering
+            \begin{tikzpicture}[american voltages]
+                \tkzDefPoints{
+                    0/0/A,
+                    0/4/B,
+                    3/4/C,
+                    3/3.5/D,
+                    3/2/E,
+                    3/0.5/F,
+                    3/0/G}
+                \draw (B) to[V, v_=20$V{pp}$] (A);
+                \draw (B) to (C);
+                \draw (C) to (D);
+                \draw (D) to[C=100uF] (E);
+                \draw (E) to[R=100k\si{\ohm}] (F);
+                \draw (F) to (G);
+                \draw (G) to (A);
+                \draw[thin, <-, >=triangle 45,path picture={
+                    \node[anchor=center]  at (path picture bounding box.center) {$i_c$};
+            }] (2,1.3) arc (-60:170:0.8);       
+            \end{tikzpicture}
+            \caption{O circuito RC é ligado a uma fonte de tensão CC que provoca o carregamento do capacitor. A corrente, que começa em intensidade máxima, diminui exponencialmente com o tempo à medida que o capacitor é carregado.}
+        \end{figure}
+    
+    Com o circuito montado, ligou-se o gerador de tensão, o qual foi configurado para fornecer 20V para o circuito. Este valor foi definido pois tratava-se do valor de tensão nominal do capacitor. Este circuito foi mantido aberto até o início da primeira tomada de medidas.
+    
+    O multímetro foi colocado em paralelo ao capacitor e o celular posicionado com a câmera ligada filmando o visor deste multímetro. O circuito foi fechado e o capacitor começou a carregar. Após um minuto, o circuito foi desligado.
+    
+    Para otimizar o tempo, aguardou-se o capacitor se estabilizar em 19V, quando o circuito era fechado novamente, mas agora sem a fonte de tensão. Ou seja, o circuito tinha o capacitor fornecendo tensão para o resistor.
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}[american voltages]
+            \tkzDefPoints{
+                0/0/A,
+                0/4/B,
+                3/4/C,
+                3/3.5/D,
+                3/2/E,
+                3/0.5/F,
+                3/0/G}
+            \draw (B) to(A);
+            \draw (B) to (C);
+            \draw (C) to (D);
+            \draw (D) to[C=100uF] (E);
+            \draw (E) to[R=100k\si{\ohm}] (F);
+            \draw (F) to (G);
+            \draw (G) to (A);
+            % \draw[-latex] (-.5,2.5) -- (-.5,1.5);
+            \draw[thin, <-, >=triangle 45,path picture={
+            \node[anchor=center]  at (path picture bounding box.center) {$i_d$};
+            }] (0.8,2.4) arc (160:-70:.8);
+        \end{tikzpicture}
+        \caption{O circuito RC é desconectado da fonte e, a partir de então, passa a ser o fornecedor de energia para o circuito, gerando uma corrente de sentido inverso a propelida pela fonte anteriormente.}
+        \label{circuitoDescarga}
+    \end{figure}
+    
+    Diferente do circuito anterior, a corrente fluiu em sentido contrário até o momento de total descarga do capacitor.
+
+
+\section{Resultados e Discussão}
+    
+    Com o múltímetro ligado em paralelo ao capacitor, as medidas de tensão foram tomadas a cada cinco segundos e inseridas na seguinte tabela. Os valores teóricos foram calculados por meio das equações \eqref{eq:coisa1} e \eqref{eq:coisa2}, enquanto o erro relativo foi calculado por meio da relação a seguir:
+
+    \begin{equation}
+        Err_{relativo} = \frac{|V_m-V_t|}{V_t}
+        \label{eq:coisa1}
+    \end{equation}
+
+    A incerteza foi calculada utilizando a equação de derivadas parciais.
+
+    \begin{equation}
+        \sigma = \overline V \left(\frac{\partial \overline V}{V_1}\right)^2\sigma_1^2+...+\left(\frac{\partial \overline V}{V_5}\right)^2\sigma_5^2
+        \label{eq:coisa2}
+    \end{equation}
+
+    
+    
+\begin{thebibliography}{99}
+    \bibitem    {mit}
+                \textbf{AGARWAL, A. \& LANG, G. H.}
+                Foundations of Analog and Digital Electronic. Circuits. San Francisco, Elsevier Inc, 2005.
+    \bibitem    {sadiku}
+                \textbf{ALEXANDER, C. K. \& SADIKU, M. N. O.}
+                Fundamentos de Circuitos Elétricos. Porto Alegre, Bookman Cia. Editora, 2003.
+    \bibitem    {halliday}
+                \textbf{HALLIDAY, D. RESNICK, R.}
+                Fundamentos de Física: Eletromagnetismo. 9a Ed. Rio de Janeiro: Livros Técnicos e Científicos, 2012. Vol 3.
+    \bibitem    {edo}
+                \textbf{ZILL, D. G.}
+                A First Course in Differential Equations, with Modeling Applications. 9a Ed. California, Brooks/Cole.
+
+
+\end{thebibliography}
+\end{multicols*}
+\end{document}
