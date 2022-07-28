@@ -21,11 +21,11 @@ def open_video():
         success, frame = video.read()
         # cv2.imshow("frame", frame)
         output.write(frame)
-        if cv2.waitKey(20) == ord('q'):
+        if not success:
             break
+        # if cv2.waitKey(20) == ord('q'):
+        #     break
     video.release()
     cv2.destroyAllWindows()
 
-
-# x = input("Press enter to continue")
 open_video()
