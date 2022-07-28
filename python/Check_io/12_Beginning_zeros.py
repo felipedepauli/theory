@@ -3,6 +3,8 @@
 # Input: A string, that consist of digits.
 # Output: An Int. 
 
+# Solution 01
+
 def beginning_zeros(sequence):
     count = 0
     for i in sequence:
@@ -20,3 +22,17 @@ assert beginning_zeros('012345679') == 1
 assert beginning_zeros('0000') == 4
 
 print("Rolou!")
+
+# Tem uns jeitinhos caóticos de resolver isso.
+# Solution 02
+def beginning_zeros_2(sequence):
+    return len(sequence) - len(sequence.lstrip('0'))
+# O lstrip() remove tudo que você colocar como argumento da esquerda até encontrar um caractere diferente.
+# Por exemplo
+# ('fdsafcx').lstrip('adfs') -> 'cx'
+
+print(beginning_zeros_2('100'))
+print(beginning_zeros_2('001'))
+print(beginning_zeros_2('100010'))
+print(beginning_zeros_2('0123'))
+print(beginning_zeros_2('0000'))
