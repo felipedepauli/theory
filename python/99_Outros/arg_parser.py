@@ -18,9 +18,11 @@ parser.add_argument("satanas_2", help="Digite um número qualquer.", type=int)
 # Já os optativos precisam iniciar com --. Feito isso, você pode ou não usá-los. Se eles não aparecerem no linha de comando, o interpretador não irá causar um erro.
 # Existem duas opções de argumento optativos: com argumento adicional ou sem (somente eles por eles)
 parser.add_argument("--idade", help="Digite sua idade")
-parser.add_argument("--quem", help="Testa, doidão!!", action="store_true")
+parser.add_argument("--quem",  help="Testa, doidão!!", action="store_true")
 # Se quiser pode usar as short versions:
 parser.add_argument("-v", help="Verbose Mode", action="store_true")
+# Quando usar shorts, é interessante utilizar o dest para indicar qual será o nome do atributo dentro de args que receberá o valor.
+parser.add_argument("-e", dest="evento", help="Quando for um evento.")
 
 #######################################
 # Agora tá na hora de parsear
@@ -38,3 +40,6 @@ if args.idade:
 
 if args.v:
     print("Verboso é o caraleo =D")
+
+if args.evento:
+    print(f"É um evento cujo nome é {args.evento}")
