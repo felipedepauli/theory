@@ -11,8 +11,8 @@ parser = argparse.ArgumentParser()
 # 1. POSICIONAIS
 # Os posisionais não possuem -- na frente do nome do argumento. Você pode dar o nome que quiser, já que o primeiro argumento será atribuído ao primeiro add_argument, e segundo argumento ao segundo add_argument, e assim por diante.
 
-parser.add_argument("satanas_1", help="Digite um número qualquer.", type=int)
-parser.add_argument("satanas_2", help="Digite um número qualquer.", type=int)
+parser.add_argument("a_number_1", help="Digite um número qualquer.", type=int)
+parser.add_argument("a_number_2", help="Digite um número qualquer.", type=int)
 
 # 2. OPTATIVOS
 # Já os optativos precisam iniciar com --. Feito isso, você pode ou não usá-los. Se eles não aparecerem no linha de comando, o interpretador não irá causar um erro.
@@ -29,8 +29,8 @@ parser.add_argument("-e", dest="evento", help="Quando for um evento.")
 
 args = parser.parse_args()
 
-print(f'Dae rapeize: {args.satanas_1}')
-print(f'Dae rapeize: {args.satanas_2}')
+print(f'Dae rapeize: {args.a_number_1}')
+print(f'Dae rapeize: {args.a_number_2}')
 
 if args.quem:
     print("perguntou?")

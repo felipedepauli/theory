@@ -1,7 +1,7 @@
 import cv2
 import os
 
-path = "opencv/rouizi/"
+path = "engineering/vision/opencv/python/rouizi/"
 
 image = cv2.imread(os.path.join(path, "images/sample.jpg"))
 

@@ -1,13 +1,18 @@
 # Theory
-Teoria avançada demais. As vezes não.
 
-Teremos as seguintes tecnologias
+All the theory that is necessary to achieve electronics engineering mastering.
 
-## Programação
+## Programming Languages
 
-- Javascript
-- Python
 - C
 - C++
+- Javascript
+- Python
 - VHDL
-- Assembly
+
+## Engineering
+
+- Electricity
+- Electronics
+- Computacional Vision
+- Systems Control
